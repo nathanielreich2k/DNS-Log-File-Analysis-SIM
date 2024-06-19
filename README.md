@@ -19,20 +19,38 @@
 
 ✨ OBJECTIVE: The aim is to capture and observe log data within Splunk for anomalies and potential malicious activity.
 
-✨ THEORY: Multiple online log files will be uploaded into Splunk to observe the data shown.
-
 
 ### 1. Prepare Sample DNS Log Files for upload to Splunk
-- Obtained a free sample online of a DNS log file. 
+- Obtained a free sample online of a DNS log file. [DNS log file](https://www.secrepo.com/maccdc2012/dns.log.gz)
 - Saved the sample log files in a directory accessible by the Splunk instance.
 
-*Ref 1: 
+*Ref 1: A simple index command was used to list all the contents of the log file.
 ```
-index=* sourcetype=dns_sample
+index=* sourcetype="dns"  
 ```
 
-### 2. Extract Relevant Fields
--Locate important categories within DNS logs such as originating IP address, target IP address, domain name, request type, response status code, and others.
+### 2. Extract New Fields
+-Using the new fields option on our dashboard we can create custom search options.
+
+-These include categorizations such as originating IP address, target IP address, domain name, request type, response status code, and others.
+
+*Ref 1: 
+A sample log file was chosen that included a source IP of 198.162.21.25 and a destination of 192.168.202.136 137
+![splunk 1](https://github.com/nathanielreich2k/DNS-Log-File-Analysis-SIM/assets/155709615/3121eb6f-1ec7-4196-8e17-41afa064f658)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 -As illustrated here:" | regex _raw="(?i)\b(dns|domain|query|response|port 53)\b": " This regular expression is designed to identify typical DNS-related terms within the unprocessed event data.
 
