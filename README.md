@@ -40,30 +40,34 @@ A sample log file was chosen that included a source IP of 198.162.21.25 and a de
 
 
 
+-For more specific search queries we can use this expression which includes parsing through our data with keywords. Such as the domain, query type, and port.
+-As illustrated here:" | regex _raw="(?i)\b(dns|domain|query|response|port 53)\b": " 
 
-
-
--For more specific search queries we can use this expression which includes parsing through our datga to sercgh
--As illustrated here:" | regex _raw="(?i)\b(dns|domain|query|response|port 53)\b": " This regular expression is designed to identify typical DNS-related terms within the unprocessed event data.
+This regular expression is designed to identify typical DNS-related terms within the unprocessed event data.
 
 -Sample command for extraction:
 ```
-index=* sourcetype=dns_sample | regex _raw="(?i)\b(dns|domain|query|response|port 53)\b"
+index=* sourcetype=dns | regex _raw="(?i)\b(dns|domain|query|response|port 53)\b"
 ```
+![splunk 2](https://github.com/nathanielreich2k/DNS-Log-File-Analysis-SIM/assets/155709615/5221818e-53c4-47da-98d0-b92ef9a84e41)
 
 ### 3. Identify irregularities in the data
 - Observing for unusual anomalies or changes in the data for DNS queries.
-- Example query to identify surges.
+- Example for the below query could be used to group data in a table to identify surges.
 ```
-index=_* OR index=* sourcetype=dns_sample  | stats count by fqdn
+index=_* OR index=* sourcetype=dns  | table fqdn, src_ip, dst_ip
 ```
+![splunk 3](https://github.com/nathanielreich2k/DNS-Log-File-Analysis-SIM/assets/155709615/e408ee37-4f23-4005-b975-2e4642b8db72)
 
 ### 4. Find the top DNS sources
-- Use the top command to count each query type and the occurrences:   
+- This command can be used to find the top information of each query type and the occurrences:   
 ```
-index=* sourcetype=dns_sample | top fqdn, src_ip
+index=* sourcetype=dns | top fqdn, src_ip
 ```
 
+## Conclusion
+-The above represents some commands to search and parse information to assist in finding anomalies.
+-To use of short keys would be of use in this scenario for quick deployment.
 
 
 
