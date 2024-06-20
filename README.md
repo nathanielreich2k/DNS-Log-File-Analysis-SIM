@@ -43,15 +43,7 @@ A sample log file was chosen that included a source IP of 198.162.21.25 and a de
 
 
 
-
-
-
-
-
-
-
-
-
+-For more specific search queries we can use this expression which includes parsing through our datga to sercgh
 -As illustrated here:" | regex _raw="(?i)\b(dns|domain|query|response|port 53)\b": " This regular expression is designed to identify typical DNS-related terms within the unprocessed event data.
 
 -Sample command for extraction:
