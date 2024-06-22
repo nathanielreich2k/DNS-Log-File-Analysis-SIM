@@ -4,7 +4,7 @@
 ✨DNS (Domain Name System) logs play a vital role in comprehending network operations and pinpointing possible security risks. Splunk SIEM (Security Information and Event Management) offers robust features to analyze DNS logs effectively, enabling the detection of irregularities and potential malicious behaviors.
 
 ## Skills Learned
--Interacting with the Splunk platform to search for our log files. Including DNS, HTTP, and SSH events.
+-Interacting with the Splunk platform to search for and utilize tools for effective data aggregation.
 
 -Extraction of key information such as IP addresses, login attempts, query type, and response code.
 
